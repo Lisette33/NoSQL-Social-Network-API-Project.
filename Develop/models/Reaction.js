@@ -1,6 +1,6 @@
 const { Schema } = require('mongoose');
 
-// Schema to create Student model
+// Schema to create Reaction model
 const reactionSchema = new Schema(
   {
     reactionID: {
