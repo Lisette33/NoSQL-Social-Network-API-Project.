@@ -1,5 +1,6 @@
 const { Schema, Types, model } = require('mongoose');
 
+// Schema to create Username model
 const usernameSchema = new Schema(
   {
     usernameId: {
