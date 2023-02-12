@@ -6,11 +6,11 @@ module.exports = {
   getThoughts(req, res) {
     Thought.find()
       .then(async (thought) => {
-        const thoughtObj = {
-          thoughts,
-          headCount: await headCount(),
-        };
-        return res.json(thoughtObj);
+        // const thoughtObj = {
+        //   thoughts,
+        //   // headCount: await headCount(),
+        // };
+        return res.json(thought);
       })
       .catch((err) => {
         console.log(err);
@@ -21,13 +21,13 @@ module.exports = {
   getSingleThought(req, res) {
     Thought.findOne({ _id: req.params.thoughtId })
       .select('-__v')
-      .lean()
+      // .lean()
       .then(async (thought) =>
         !thought
           ? res.status(404).json({ message: 'No thought with that ID' })
           : res.json({
               thought,
-              grade: await grade(req.params.thoughtId),
+              // grade: await grade(req.params.thoughtId),
             })
       )
       .catch((err) => {
@@ -70,7 +70,7 @@ module.exports = {
   addReaction(req, res) {
     console.log('You are adding an reaction');
     console.log(req.body);
-    Thoughts.findOneAndUpdate(
+    Thought.findOneAndUpdate(
       { _id: req.params.thoughtId },
       { $addToSet: { reactions: req.body } },
       { runValidators: true, new: true }
