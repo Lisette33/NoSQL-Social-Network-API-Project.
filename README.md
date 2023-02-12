@@ -45,5 +45,3 @@ THEN I am able to successfully create and delete reactions to thoughts and add a
 ## Acknowledgment
 I would like to thank the professor, TAs, and others who provided their helpful guidance.
 
-## Licence
-MIT
